@@ -28,7 +28,7 @@ def session(in_memory_db):
 
 
 def wait_for_postgres_to_come_up(engine):
-    deadline = time.time() + 10
+    deadline = time.time() + 100
     while time.time() < deadline:
         try:
             return engine.connect()
@@ -38,7 +38,7 @@ def wait_for_postgres_to_come_up(engine):
 
 
 def wait_for_webapp_to_come_up():
-    deadline = time.time() + 10
+    deadline = time.time() + 100
     url = config.get_api_url()
     while time.time() < deadline:
         try:
